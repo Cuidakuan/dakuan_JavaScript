@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				/*清除默认样式 */
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				width:100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+			#box2{
+				width:100px;
+				height: 100px;
+				background-color: yellow;
+				position: absolute;
+				top: 200px;
+			}
+		</style>
+		<script type="text/javascript" src="10.tools..js"></script>
+		<script type="text/javascript">
+			
+			window.onload=function(){
+				//获取box1
+				var box1=document.getElementById("box1");
+				//获取按钮btn01
+				var btn01=document.getElementById("btn01");
+				//获取按钮btn02
+				var btn02=document.getElementById("btn02");
+				
+				
+				//点击按钮后，box1开始向右移动
+				btn01.onclick=function(){
+					move(box1,"left",800,15);
+			}
+				
+			    //点击按钮后，box1开始向左移动
+				btn02.onclick=function(){
+					move(box1,"left",0,5);	
+			}
+				//点击按钮后，box2开始向右移动
+				var btn03=document.getElementById("btn03");
+				btn03.onclick=function(){
+					move(box2,"left",800,5);	
+			}
+				//点击按钮后，box2开始变化
+				var btn04=document.getElementById("btn04");
+				btn04.onclick=function(){
+					//move(box2,"width",800,5);
+				move(box2,"width",800,10,function(){
+					move(box2,"height",500,10,function(){
+						move(box2,"top",0,10,function(){
+							move(box2,"width",0,10,function(){
+							alert("执行完毕");
+						});
+					});
+				});
+			});
+		}
+				
+				
+		}		
+		</script>
+	</head>
+	<body>
+		<button id="btn01">box1向右移动</button>
+		<button id="btn02">box1向左移动</button>
+		<button id="btn03">box2向右移动</button>
+		<button id="btn04">box2测试</button>
+		<div id="box1"></div>
+			<div style="width:0px; height: 1000px; border-left:1px black solid;position: absolute; left: 800px; top: 0px;"></div>
+		<div id="box2"></div>
+	</body>
+</html>

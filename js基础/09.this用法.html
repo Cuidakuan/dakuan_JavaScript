@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+            /*
+             * this
+             *   根据函数的调用方式不同时，this会指向不同的对象
+             *   1.以函数方式调用，this永远都是window
+             *      fun();
+             *   2.以方法的形式调用，this就是调用方的那个对象
+             *      obj.sayName();
+			*/
+			//创建一个name变量  全局变量
+			var name="全局";
+			//创建一个fun函数
+			function fun(){
+				console.log(this.name);
+			}
+			
+			//fun();
+			//创建两个对象
+			var obj={
+				name:"孙悟空",
+				sayName:fun
+				
+			}
+			var obj2={
+				name:"猪八戒",
+				sayName:fun
+			}
+			//希望哪个对象调用fun函数，就输出那个对象中的名字，
+			//此时，this起到关键作用，
+			obj.sayName();
+			obj2.sayName();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

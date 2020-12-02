@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//创建对象的方法
+			//方法一
+			/*var obj = new Object();
+			obj.name="孙悟空";*/
+			//方法二
+			var obj2 = {
+				name:"猪八戒",
+				sex:"男",
+				age:15,
+				sayName:function(){
+					console.log(obj2.name);
+				}
+			 	};
+			 	//obj2.sayName();
+			//document.write(obj2.name);
+			
+			/*//创建一个对象
+			var fun =new Function("console.log('这是函数！')");
+			console.log(fun);
+			/*调用函数
+			 * 语法：
+			 *   函数名();
+			 *   fun();
+			 */
+			
+			/*
+			 * 通常用这种方法
+			 function 函数名([参数1，参数2]){
+			 	
+			 }
+			 
+			 function fun2()
+			 {
+			 	函数体；
+			 }
+			 * */
+			console.time();
+			var obj={
+				name:"孙悟空",
+				gender:"男",
+				age:18,
+				address:"花果山"
+			}
+		    function sayHello(o){
+		    	//console.log("我叫"+o.name+"，我今年"+o.age+"岁了，"+"我是个"+o.gender+"人");
+		    	
+		    }
+		    
+		    
+		    /*sayHello(obj);
+		    obj.sayName=function(){
+		    	console.log("这是obj的sayName方法，属性值为一个函数！");
+		    }
+		    //obj.sayName();
+		    */
+		
+		    
+			//console.timeEnd();
+			function fun2(){
+				return 10;
+				
+			}
+			var a =fun2();
+			//console.log(a);
+			
+			/*
+			//立即执行函数；
+			   用大括号包起来，调用再在后面加上()。
+			(function(){
+				console.log("我是匿名函数！");
+			})();*/
+			
+			
+			
+			
+			//枚举对象中的所有值
+			for(var n in obj){
+				console.log("属性名"+n+"，属性值"+obj[n]);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

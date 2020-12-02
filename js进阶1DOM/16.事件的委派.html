@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				//为每一个超链接都帮绑定单击响应函数
+				var btn1=document.getElementById("btn1");
+				var u1=document.getElementById("u1");
+				btn1.onclick=function(){
+					//创建一个li
+					var li =document.createElement("li");
+					li.innerHTML="<a href='javascript:;' class='link'>新建的超链接</a>";
+				    u1.appendChild(li);
+				
+				}
+				var allA=document.getElementsByTagName("a");
+				
+				/*for(var i=0;i<allA.length;i++){
+					u1.onclick=function(){
+						alert("我是单击响应函数");
+					};
+				};*/
+				/*希望只绑定一次，即可应用到多个元素上
+					
+				可以尝试将其绑定给祖先元素
+				就叫时间的委派
+				   将时间绑定给统一的祖先元素
+				   利用了冒泡，
+				   * */
+				u1.onclick=function(event){
+					
+					event=event||window.event;
+					/*
+					 target 
+					  -event事件中的target 表示触发事件的对象
+					 * */
+					//如果触发事件的对象是我们期望的元素，则执行否则不执行
+					
+					if(event.target.className=="link"){
+					alert("我是u1的单击响应函数");}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<button id ="btn1">添加超链接</button>
+	 <ul id="u1">
+	 	<li><a href="javascript:;" class="link">超链接一</a></li>
+	 	<li><a href="javascript:;" class="link">超链接二</a></li>
+		<li><a href="javascript:;" class="link">超链接三</a></li>
+	 </ul>
+	</body>
+</html>

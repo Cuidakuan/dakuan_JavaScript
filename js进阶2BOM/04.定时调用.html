@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				//获取h1
+				var count=document.getElementById("count");
+				//使count中的内容自动切换
+			   /*for(var i=0;i<5;i++){
+			   	count.innerHTML=i;
+			   	alert("hello");
+			   }*/
+			  /*
+			   setInterval()
+			    -定时调用
+			      可以将一个函数每隔一段时间执行一次
+			      参数
+			       1.回调函数，该函数每隔一段时间会被调用一次
+			       2.每次调用间隔的时间，单位是毫秒
+			-返回值：
+			    返回一个number类型的数据
+			    这个数子用来作为定时器的唯一标识
+			     */
+			    var num=1;
+			var timer=setInterval(function(){
+			  	count.innerHTML=num++;
+			  	if(num==8){
+			  		  //关闭定时器
+			  clearInterval(timer);
+			  	}
+			  },1000);
+			  
+			  //获取定时器的标识
+			  //console.log(timer);
+			  
+			
+			}
+		</script>
+	</head>
+	<body>
+		<h1 id="count">1</h1>
+	</body>
+</html>

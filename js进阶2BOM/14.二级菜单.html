@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+		 *{
+		 margin: 0px; 
+		 padding: 0px;
+		 list-style-type: none;
+		 }
+		 a,img{
+		 	border: 0;
+		 	text-decoration: none;
+		 }
+		 body{
+		 	font:12px/180% arial,helvetica,sans-serif,"新宋体";
+		 }
+		 
+	</style>
+	<link rel="stylesheet" type="text/css" href="14.sdmenu.css" />
+	<script type="text/javascript" src="10.tools..js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			//获取所有的class为menuSpan的元素
+			var menuSpan=document.querySelectorAll(".menuSpan");
+			//alert(menuSpan.length);
+			
+			//定义一个变量，来保存当前打开的菜单
+		    var openDiv=menuSpan[0].parentNode;
+			
+			
+            //为span绑定点击响应函数
+            for (var i=0;i<menuSpan.length;i++) {
+            	menuSpan[i].onclick=function(){
+            	//this代表我当前点击的span
+            	//获取当前span元素的父元素div
+            	var parentDiv=this.parentNode;
+            	
+            	//切换菜单的显示状态
+            	toggleMenu(parentDiv);
+            	
+            	//判断openDiv和parentdiv是否相同
+            	if(openDiv!=parentDiv&&!hasClass(openDiv,"collapsed") ){
+            		
+            	//打开菜单以后，应该关闭之前打开的菜单
+            	/*为了同意实现过度动画效果
+            	 把这里改成toggleClass
+            	 toggleClass不需要有移除的功能
+            	 * */
+            	//toggleClass(openDiv,"collapsed");
+            		//切换菜单的显示状态
+            	toggleMenu(openDiv);
+            	
+            	}
+            	//修改openDiv为当前打开的菜单
+            	openDiv=parentDiv;
+            	
+            	}
+            
+            }	
+            //创建一个函数，完成切换菜单的折叠和状态
+            function toggleMenu(obj){
+            	//在切换类之前，获取一个高度
+            	var begin=obj.offsetHeight;
+            	
+            	//切换parentDiv显示
+            	toggleClass(obj,"collapsed");
+            		
+            	//在切换类之后，获取一个高度
+            	var end=obj.offsetHeight;
+            	//动画效果就是从begin到end过度
+            	//将元素的高度重置为begin
+            	obj.style.height=begin+"px";
+            	//执行动画
+            	move(obj,"height",end,10,function(){
+            		//动画执行完毕，内联样式已经没有存在的意义了
+            		//删除内联样式
+            		obj.style.height="";
+            	});
+            }
+			
+  };
+	</script>
+	
+	
+	</head>
+	<body>
+		<div id="my_menu" class="sdmenu">
+			<div>
+				<span class="menuSpan">在线工具</span>
+				<a href="#">图像优化</a><br />
+				<a href="#">收藏夹图标生成器</a><br />
+				<a href="#">邮件</a><br />
+				<a href="#">梯度图像</a><br />
+				<a href="#">按钮生成器</a><br />
+			</div>
+			<div class="collapsed">
+				<span class="menuSpan">支持我们</span>
+				<a href="#">推荐我们</a><br />
+				<a href="#">连接我们</a><br />
+				<a href="#">网络资源</a><br />
+			</div>
+			<div class="collapsed">
+				<span class="menuSpan">合作伙伴</span>
+				<a href="#">JavaScript工具包</a><br />
+				<a href="#">CSS驱动</a><br />
+				<a href="#">CSS例子</a><br />
+			</div>
+			<div class="collapsed">
+				<span class="menuSpan">测试电流</span>
+				<a href="#">Current or not</a><br />
+				<a href="#">Current or not</a><br />
+				<a href="#">Current or not</a><br />
+			</div>
+		</div>
+	</body>
+</html>

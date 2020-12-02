@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.b1{
+				width:100px;
+				height: 100px;
+				background-color: red;
+			}
+			.b2{
+				
+				height: 200px;
+				background-color:yellow;
+			}
+		</style>
+		<script type="text/javascript" src="10.tools..js"></script>
+		<script type="text/javascript">
+			
+			window.onload=function(){
+				var btn01=document.getElementById("btn01");
+				var box1=document.getElementById("box1");
+				btn01.onclick=function(){
+					/*通过style属性修改样式，每修改一个样式，浏览器会重新渲染一次页面
+					这样执行性能会很差，而且修改多个会很不方便		
+					* */
+				/*	box1.style.width="200px";
+					box1.style.height="200px";
+					box1.style.backgroundColor="yellow";*/
+				 /*希望一行代码，可以修改多个样式
+				  可以通过修改元素的class，间接修改元素样式
+				  浏览器只需要渲染一次，而且耦合性比较低
+				  * */
+				  //box1.className+=" b2";
+				  //addClass(box1,"b2");
+				  //alert(hasClass(box1,"b2"));
+				  toggleClass(box1,"b2");
+				}
+			};
+			
+		
+		</script>
+	</head>
+	<body>
+		<button id="btn01">点击修改box样式</button>
+		<br /><br />
+		<div id="box1" class="b1 b2"></div>
+	</body>
+</html>

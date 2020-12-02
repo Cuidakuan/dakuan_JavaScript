@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+        	处理事件
+        	在时间对相应的属性中设置一些js代码
+        -->
+              <button id="btn1">我是按钮</button>
+		<!--
+			这种方法结构和行为耦合
+	    <button id="btn1" onmousemove="alert('点我干嘛')">我是按钮</button>
+	    -->
+		<script type="text/javascript">
+			
+			/*
+			 事件就是用户与浏览器之间的交互
+			 可以为按钮对相应的事件绑定处理函数的形式来响应事件
+			 */
+			//获取按钮对象
+			var btn1=document.getElementById("btn1");
+			//绑定一个单击事件，这种函数我们称为单击响应函数
+			
+			btn1.onclick=function(){
+				alert("你还点....");
+			};
+		</script>
+	</body>
+</html>

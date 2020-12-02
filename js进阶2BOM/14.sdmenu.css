@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/*sdmenu*/
+
+div.sdmenu{
+	width: 150px;
+	margin: 0 auto;
+	font-family: arial,sans-serif;
+	font-size:12px;
+	padding-bottom: 10px;
+	
+	
+}
+
+div.sdmenu div{
+	background-color:blueviolet ;
+	overflow: hidden;	
+}
+
+div.sdmenu div:first-child{
+	
+}
+
+div.sdmenu div.collapsed{
+	height: 25px;
+}
+
+div.sdmenu div span{
+	display: block;
+	height: 15px;
+	line-height: 15px;
+	overflow: hidden;
+	padding: 5px 25px;
+	font-weight: bold;
+	color: white;
+	
+	cursor: pointer;
+	;
+}

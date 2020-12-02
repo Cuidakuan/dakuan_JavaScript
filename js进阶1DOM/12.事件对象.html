@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		
+		#areaDiv{
+			border: 1px solid black ;
+			width: 400px;
+			height: 200px;
+		}
+		#showMsg{
+			border: 1px solid black ;
+			width: 400px;
+			height: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			//当鼠标移动时显示鼠标的坐标
+			//获取两个div
+			var areaDiv=document.getElementById("areaDiv");
+			var showMsg=document.getElementById("showMsg");
+		
+		    /*
+		     onmousemove
+		        -该事件将会在鼠标移动的时候触发
+		        
+		      
+		      事件对象
+		      -当事件的响应函数被触发时，浏览器每次都会将一个对象作为实参传递给响应函数
+		        在事件对象中封装了当前事件相关的一切信息，比如：鼠标的移动，被按下的键盘
+		     * */		    
+		    areaDiv.onmousemove=function(event){
+		    	
+		    	/*
+		    	 IE8不兼容时需要使用
+		    	 if(!event){
+		    	 	event=window.event;
+		    	 }
+		    	 * */
+		    	
+		    	var x= event.clientX-areaDiv.offsetLeft;
+		    	var y=event.clientY-areaDiv.offsetTop;
+		    	showMsg.innerHTML="x="+x+",&ensp;y="+y;	
+		    };
+		    
+		};
+	</script>
+	<body>
+		<div id="areaDiv"></div>
+		<div id="showMsg"></div>
+			
+	</body>
+</html>

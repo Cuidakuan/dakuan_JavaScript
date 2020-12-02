@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * Location 
+			 *   -该对象中封装了浏览器的地址栏信息
+			 */
+			window.onload=function(){
+				var btn01=document.getElementById('btn01');
+				btn01.onclick=function(){
+					//直接打印Location，可以获取当前页面的完整路径
+					//alert(location);
+					//location="http://www.baidu.com";
+				   
+				   /*
+				    assign()
+				      -用来跳转到其他页面，作用和直接修改location一样
+				    */
+				   //location.assign("http://www.baidu.com");
+				   
+				   /*
+				    reload()
+				      -用于重新加载当前页面，作用和刷新按钮一样
+				      加上参数true，表示强制清空缓存，相当于ctrl+f5
+				    */
+				   //location.reload(true);
+				   
+				   /*replace()
+				    * 替换页面，没有历史记录，不能返回上一个页面
+				    */
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" />
+		<button id="btn01">button</button>
+	</body>
+</html>

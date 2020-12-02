@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 200px;
+				height: 200px;
+				background-color: yellowgreen;
+			}
+			#s1{
+				background-color: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				//事件的冒泡(bubble)
+		/*		如果不取消冒泡，点击一个事件后
+		 *      会一级一级往上传
+		 *      开发中冒泡一般很有用
+		 *      如果不希望发生事件的冒泡可以通过事件对象来取消冒泡
+		 *      
+		 * 
+		 */
+		    var s1=document.getElementById("s1");
+		    //需要传递一个形参event
+			   s1.onclick=function(event){
+			   	event=event||window.event;
+			   	alert("我是span");
+			   	//用.cancelBubble可以取消冒泡
+			   	event.cancelBubble=true;
+			   }
+			   var box1=document.getElementById("box1");
+			   box1.onclick=function(event){
+			   	 	event=event||window.event;
+			   	alert("我是div");
+			   	 	event.cancelBubble=true;
+			   }
+			  
+			   document.body.onclick=function(){
+			   	alert("我是body");
+			   } 
+			};
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			我是box1
+			<span id="s1">我是span</span>
+		</div>
+	</body>
+</html>

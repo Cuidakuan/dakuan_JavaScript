@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		
+		#box1{
+			width: 100px;
+			height: 100px;
+			background-color:red ;
+			/*开启box1绝对定位*/
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			//使div随鼠标移动
+			
+			//获取box1
+			var box1=document.getElementById("box1");
+			//绑定鼠标移动事件
+			//绑定box1范围太小，应绑定document
+			document.onmousemove=function(event){
+				
+				//解决浏览器兼容问题
+				event =event||window.event;
+				
+		     	/*	chrome认为浏览器的滚动条时body的，可以通过body.scrollTop来获取
+		     	 * 火狐等浏览器认为浏览器的滚动条是html的
+		     	 
+		     	 * */
+		     	var st=document.body.scrollTop||document.documentElement.scrollTop;
+		     	var sl=document.body.scrollLeft||document.documentElement.scrollLeft;
+		     	
+		     	
+				//获取到鼠标的坐标
+				/*
+				 cilentx和cilenty
+				 用于获取鼠标在当前可见窗口的坐标
+				 div的偏移量，是相对于整个页面的
+				 
+				 pagex和pagey可以获取鼠标相对于页面的坐标
+				 * */
+				var left=event.clientX;
+				var top=event.clientY;
+				
+				//设置div的偏移量
+				box1.style.left=left+sl+"px";
+				box1.style.top=top+st+"px";
+				
+			};
+		};
+	</script>
+	<body style="height:1000px; width: 2000px;">
+		<div id="box1"></div>
+	</body>
+</html>

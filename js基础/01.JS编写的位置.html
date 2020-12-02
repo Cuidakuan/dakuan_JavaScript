@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<!--
+        	作者：1726842817@qq.com
+        	时间：2020-02-22
+        	描述：引入外部代码 通过script
+        -->
+        <!--
+        	script标签用完外部，不能用内部
+        	如果需要，在创一个script标签
+        -->
+        <script type="text/javascript" src="js/script.js">
+        	
+        </script>
+        <script type="text/javascript">
+        	alert("我是内部文件");
+        </script>
+		<!--
+			<script type="text/javascript">
+		 alert("aaaa");
+		</script>
+		-->
+	</head>
+	<body>
+		
+		<!--
+        	作者：1726842817@qq.com
+        	时间：2020-02-22
+        	描述：可以将js代码编写到onClick属性中
+        -->
+		<button onclick="alert('讨厌，点我干嘛~');">点我</button>
+	<!--
+    	作者：1726842817@qq.com
+    	时间：2020-02-22
+    	描述：可以将js写在超链接href属性中，当点击超链接时会执行js
+    -->
+	<a href="javascript:alert('让你点你就点啊？')">你也点我一下</a>
+	
+	
+	</body>
+</html>

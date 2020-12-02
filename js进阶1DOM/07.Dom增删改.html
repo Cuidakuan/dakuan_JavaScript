@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				myClick("btn01",function(){
+					
+				});
+				
+				myClick("btn02",function(){
+					alert("你好");
+				});
+			}
+			
+			
+			//如果有获取元素重复代码，可以定义一个方法并传递参数
+			function myClick(idstr,fun){
+				var btn=document.getElementById(idstr);
+				btn.onclick=fun;
+			}
+			
+			
+			/*
+			 创建元素节点对象
+			 他需要一个标签名作为参数，根据标签名创建对象
+			 	var li =document.createElement("li");
+			创建文本节点
+			他需要一个文本内容作为参数，根据该内容创建文本节点
+				var gzText = document.createTextNode("广州");
+			
+			appendChild()
+			像一个父节点中添加一个新的子节点
+				li.appendChild(gzText);
+			* * */
+		
+		</script>
+	</head>
+	<body>
+		<input id="btn01" type="button" value="按钮一" />
+		<input id="btn02" type="button" value="按钮二" />
+	</body>
+</html>

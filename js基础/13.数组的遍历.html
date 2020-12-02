@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr=["唐僧","孙悟空","猪八戒","沙和尚"];
+			//for循环遍历
+			for(var i=0;i<arr.length;i++){
+				//console.log(arr[i]);
+			}
+			//forEach方法遍历
+			// IE8以上支持，浏览器传三个形参
+			arr.forEach(function(value,index,arr){
+				//console.log(value)；
+			})
+			
+			//数组的去重训练
+			//创建一个数组
+			var arr=[2,3,2,2,2,3,4,3,5];
+			//获取数组中的元素
+			for(var i=0;i<arr.length;i++){
+				//获取当前元素后的所有元素
+				for(var j=i+1;j<arr.length;j++){
+					//判断两个值是否相等
+					if(arr[i]==arr[j]){
+							/*arr.splice()方法是删除数组中的元素
+							 第一个参数是开始索引，包含
+							  第二个参数是结束索引，不包含*/
+						arr.splice(j,1);
+					     j--;
+					}
+				}
+			}
+			console.log(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

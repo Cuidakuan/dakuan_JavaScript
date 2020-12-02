@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				/*清除默认样式 */
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				width:100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			//定义一个变量保存定时器的标识
+				var timer ;
+			window.onload=function(){
+				//获取box1
+				var box1=document.getElementById("box1");
+				//获取按钮btn01
+				var btn01=document.getElementById("btn01");
+				//获取按钮btn02
+				var btn02=document.getElementById("btn02");
+				
+				
+				//点击按钮后，box1开始向右移动
+				btn01.onclick=function(){
+					move(box1,800,5);
+			}
+				
+					//点击按钮后，box1开始向左移动
+				btn02.onclick=function(){
+					move(box1,0,5);
+				
+			}
+				
+				//自己定义一个移动函数move用来调用
+				function move(obj,target,speed){
+					//关闭上一个定时器
+					clearInterval(timer);
+					
+					//解决传值时的正负问题
+					//获取元素的当前位置
+					var current=parseInt(getStyle(obj,"left"));
+					/*
+					 判断元素的正负值
+					 0->800,speed 为正
+					 800->0,speed 未负*/
+					if(current>target){
+						speed=-speed;
+					}
+					
+					
+					//box1动就是一直在修改left值
+					//开启一个定时器
+					timer=setInterval(function(){
+						//获取box1旧值
+						var oldValue=parseInt(getStyle(obj,"left"));
+						//在旧值的基础上增加
+						var newValue=oldValue+speed;
+						//判断newValue是否大于800
+						//向左移动时，需要判断newValue是否小于target
+						//向右移动时，需要判断newValue是否大于target
+						if((speed<0&&newValue<target) || (speed>0&&newValue>target)){
+							newValue=target;
+						}
+						//将新值设置给box1
+						obj.style.left=newValue+"px";
+						
+						//当元素移动到800px时，停止
+						if(newValue==target){
+							clearInterval(timer);
+						}
+						
+					},30);
+				}
+				
+	    /*自己定义一个函数获取当前样式
+	    * obj 要获取样式的元素
+	    * name 要获取的样式名*/
+	   	    function getStyle(obj,name){
+	    	//正常浏览器
+	    	//return getComputedStyle(obj,null)[name];
+	    	if(window.getComputedStyle){
+	    		return getComputedStyle(obj,null)[name];
+	    	}
+	    	else{
+	    		return obj.currentStyle[name];
+	    	}
+	    	
+			}	
+		}		
+		</script>
+	</head>
+	<body>
+		<button id="btn01">box1向右移动</button>
+		<button id="btn02">box1向左移动</button>
+		<div id="box1"></div>
+			<div style="width:0px; height: 1000px; border-left:1px black solid;position: absolute; left: 800px; top: 0px;"></div>
+		</div>
+	</body>
+</html>

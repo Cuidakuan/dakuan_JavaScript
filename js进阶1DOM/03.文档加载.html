@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//onload事件会在整个页面加载完成后才触发
+			//为window绑定一个onload事件
+			window.onload=function(){
+				//alert("点我一下");
+				var btn=document.getElementById("btn");
+			    btn.onclick=function(){
+				alert("hello");
+			};
+		};
+		</script>
+	</head>
+	<body>
+	   <button id="btn">点我一下</button>
+	   <!--//将js代码写在这里是为了创建button后再执行js代码
+		<script type="text/javascript">
+			var btn=document.getElementById("btn");
+			    btn.onclick=function(){
+				alert("hello");
+			};
+			</script>
+			-->
+		
+	</body>
+</html>

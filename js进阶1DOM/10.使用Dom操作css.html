@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	<style type="text/css">
+		#box1{
+			width: 200px;
+			height: 200px;
+			background-color:red ;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			//点击按钮后修改box1的大小
+	    var box1=document.getElementById("box1");
+	    //为按钮绑定一个单击响应函数
+	    var btn01=document.getElementById("btn01");
+	    var btn02=document.getElementById("btn02");
+	    var btn03=document.getElementById("btn03");
+	    var btn04=document.getElementById("btn04");
+	    btn01.onclick=function(){
+	    	//修改box1的宽度
+	    	/*通过Js修改元素的样式
+	    	语法:元素。style.样式名=样式值
+	    	
+	    	注意：
+	    	  css中的-号不能用，会报错
+	    	   此时应该修改为驼峰命名法
+	    	* */
+	    	box1.style.width="400px";
+	    	box1.style.height="400px";
+	    	box1.style.backgroundColor="#ADFF2F";
+	    }
+	    btn02.onclick=function(){
+	    	box1.style.width="200px";
+	    	box1.style.height="200px";
+	    	
+	    	box1.style.backgroundColor="red";
+	    }
+	    
+	    btn03.onclick=function(){
+	    	//读取box1的样式
+	    	/*
+	    	 通过style属性读取到的都是内联样式
+	    	 * 语法：元素.style.样式名
+	    	 * */
+	    	alert(box1.style.width);
+	    }
+	    
+	    btn04.onclick=function(){
+	    	//获取当前元素显示的演示
+	    	/*只有在IE中在能使用
+	    	 * 语法：元素.currentStyle.样式名
+	    	 * 他可以用来读取当前元素正在现实的样式
+	    	 * */
+	          //alert(box1.currentStyle.width);
+	    	/*在其他浏览器中可以使用getComputedStyle()这个方法
+	    	 需要两个参数
+	    	 1、要获取样式的属性
+	    	  2、可以传递一个伪元素，一般都为null*/
+	    	 var obj=getStyle(box1,"width");
+	    	 alert(obj);
+	    }
+	    
+	   
+	  };
+	  /* //自己定义一个函数获取当前样式
+	    * obj 要获取样式的元素
+	    * name 要获取的样式名
+	    */
+	    function getStyle(obj,name){
+	    	
+	    	//正常浏览器
+	    	//return getComputedStyle(obj,null)[name];
+	    	if(window.getComputedStyle){
+	    		return getComputedStyle(obj,null)[name];
+	    	}
+	    	else{
+	    		return obj.currentStyle[name];
+	    	}
+	    	
+	    	//IE8的方式
+	    	//return obj.currentStyle[name];
+	    	
+	    	
+	    }
+	</script>
+	</head>
+	<body>
+		
+		<button id="btn01">点我变大变绿</button>
+		<button id="btn02">点我变小变红</button>
+		<button id="btn03">获取内联样式</button>
+		<button id="btn04">获取当前显示样式</button>
+		<div id="box1"></div>
+	
+	</body>
+</html>
